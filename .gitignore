@@ -1,0 +1,5 @@
+node_modules
+coverage
+dichotomy.xlsx
+yarn.lock
+yarn-error.log
