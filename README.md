@@ -15,7 +15,7 @@
 The project is still under development and the next updates will focus on the following tasks:
 
 - [x] assignment 1
-- [] assignment 2
+- [x] assignment 2
 - [] assignment 3
 - [ ] assignment 4
 - [ ] assignment 5
