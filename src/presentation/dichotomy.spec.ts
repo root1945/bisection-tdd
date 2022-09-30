@@ -44,4 +44,11 @@ describe('Dichotomy', () => {
     const result = await sut.calculate(params)
     expect(result).toEqual({ root: 1, iterations: 1, generatedExcel: 'success' })
   })
+
+  it('Should throw if Calculation throws', async () => {
+    const { sut, calculationStub } = makeSut()
+    jest.spyOn(calculationStub, 'calculate').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    const promise = sut.calculate(params)
+    await expect(promise).rejects.toThrow()
+  })
 })
