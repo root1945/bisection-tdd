@@ -9,7 +9,7 @@ interface SutTypes {
 const makeCalculationStub = (): Calculation => {
   class CalculationStub implements Calculation {
     async calculate (params: Calculation.Params): Promise<Calculation.Result> {
-      return await new Promise(resolve => resolve({ root: 0, iterations: 0, generatedExcel: '' }))
+      return await new Promise(resolve => resolve({ root: 1, iterations: 1, generatedExcel: 'success' }))
     }
   }
   return new CalculationStub()
@@ -37,5 +37,11 @@ describe('Dichotomy', () => {
     const calculationSpy = jest.spyOn(calculationStub, 'calculate')
     await sut.calculate(params)
     expect(calculationSpy).toHaveBeenCalledWith(params)
+  })
+
+  it('Should return the same result as Calculation', async () => {
+    const { sut } = makeSut()
+    const result = await sut.calculate(params)
+    expect(result).toEqual({ root: 1, iterations: 1, generatedExcel: 'success' })
   })
 })
