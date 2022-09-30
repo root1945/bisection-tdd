@@ -4,8 +4,8 @@ export class Dichotomy {
   constructor (private readonly calculation: Calculation) {}
 
   async calculate (params: Dichotomy.Params): Promise<Dichotomy.Result> {
-    await this.calculation.calculate(params)
-    return await new Promise(resolve => resolve({ root: 0, iterations: 0, generatedExcel: '' }))
+    const result = await this.calculation.calculate(params)
+    return result
   }
 }
 
