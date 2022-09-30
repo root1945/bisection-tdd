@@ -9,7 +9,7 @@ export class MathCalculation implements Calculation {
   ) {}
 
   async calculate (params: Calculation.Params): Promise<Calculation.Result> {
-    const { table } = await this.math.calculate(params)
+    const { table, iterations, root } = await this.math.calculate(params)
 
     if (table.length === 0) {
       return {
@@ -19,12 +19,8 @@ export class MathCalculation implements Calculation {
       }
     }
 
-    await this.generateExcel.generate({ table })
+    const { generatedExcel } = await this.generateExcel.generate({ table })
 
-    return await new Promise(resolve => resolve({
-      root: 1,
-      iterations: 1,
-      generatedExcel: 'success'
-    }))
+    return Object.assign({}, { root, iterations, generatedExcel })
   }
 }
