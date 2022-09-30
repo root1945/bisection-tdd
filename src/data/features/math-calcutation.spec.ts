@@ -45,4 +45,17 @@ describe('MathCalculation', () => {
     await sut.calculate(params)
     expect(mathSpy).toHaveBeenCalledWith(params)
   })
+
+  it('Should throw if Math throws', async () => {
+    const { sut, mathStub } = makeSut()
+    jest.spyOn(mathStub, 'calculate').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    const params = {
+      func: 'e^x + x/2',
+      interval: [-1, 0],
+      precision: 0.00001,
+      maxIterations: 100
+    }
+    const promise = sut.calculate(params)
+    await expect(promise).rejects.toThrow()
+  })
 })
