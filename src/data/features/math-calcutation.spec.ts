@@ -124,4 +124,20 @@ describe('MathCalculation', () => {
     const promise = sut.calculate(params)
     await expect(promise).rejects.toThrow()
   })
+
+  it('Should return correct values on success', async () => {
+    const { sut } = makeSut()
+    const params = {
+      func: 'e^x + x/2',
+      interval: [-1, 0],
+      precision: 0.00001,
+      maxIterations: 100
+    }
+    const result = await sut.calculate(params)
+    expect(result).toEqual({
+      root: 1,
+      iterations: 1,
+      generatedExcel: 'success'
+    })
+  })
 })
