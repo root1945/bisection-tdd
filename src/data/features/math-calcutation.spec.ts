@@ -111,4 +111,17 @@ describe('MathCalculation', () => {
       generatedExcel: 'not values to generate excel'
     })
   })
+
+  it('Should throw if GenerateExcel throws', async () => {
+    const { sut, generateExcelStub } = makeSut()
+    jest.spyOn(generateExcelStub, 'generate').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    const params = {
+      func: 'e^x + x/2',
+      interval: [-1, 0],
+      precision: 0.00001,
+      maxIterations: 100
+    }
+    const promise = sut.calculate(params)
+    await expect(promise).rejects.toThrow()
+  })
 })
