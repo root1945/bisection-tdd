@@ -103,7 +103,12 @@ describe('MathCalculation', () => {
       precision: 0.00001,
       maxIterations: 100
     }
-    await sut.calculate(params)
+    const result = await sut.calculate(params)
     expect(generateExcelSpy).not.toHaveBeenCalled()
+    expect(result).toEqual({
+      root: 0,
+      iterations: 0,
+      generatedExcel: 'not values to generate excel'
+    })
   })
 })
