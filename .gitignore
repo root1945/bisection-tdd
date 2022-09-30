@@ -3,3 +3,4 @@ coverage
 dichotomy.xlsx
 yarn.lock
 yarn-error.log
+dist
