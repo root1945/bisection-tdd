@@ -1,4 +1,4 @@
-import { Calculation } from '../domain/Calculation'
+import { Calculation } from '../domain/calculation'
 import { Dichotomy } from './dichotomy'
 
 interface SutTypes {
