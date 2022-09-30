@@ -88,4 +88,22 @@ describe('MathCalculation', () => {
       ]
     })
   })
+
+  it('Should not call GenerateExcel if Math returns empty table', async () => {
+    const { sut, mathStub, generateExcelStub } = makeSut()
+    jest.spyOn(mathStub, 'calculate').mockReturnValueOnce(new Promise(resolve => resolve({
+      root: 1,
+      iterations: 1,
+      table: []
+    })))
+    const generateExcelSpy = jest.spyOn(generateExcelStub, 'generate')
+    const params = {
+      func: 'e^x + x/2',
+      interval: [-1, 0],
+      precision: 0.00001,
+      maxIterations: 100
+    }
+    await sut.calculate(params)
+    expect(generateExcelSpy).not.toHaveBeenCalled()
+  })
 })
