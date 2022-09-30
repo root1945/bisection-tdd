@@ -23,4 +23,18 @@ describe('MathAdapter', () => {
     })
     expect(compileSpy).toHaveBeenCalledWith('e^x + x/2')
   })
+
+  it('Should returns throw if compile throws', async () => {
+    const sut = makeSut()
+    jest.spyOn(mathjs, 'compile').mockImplementationOnce(() => {
+      throw new Error()
+    })
+    const promise = sut.calculate({
+      func: 'e^x + x/2',
+      interval: [-1, 0],
+      precision: 0.00001,
+      maxIterations: 100
+    })
+    await expect(promise).rejects.toThrow()
+  })
 })
