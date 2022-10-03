@@ -1,4 +1,4 @@
-import { Math, Table } from '../../data/protocols/math'
+import { Math, Table } from '@/data/protocols/math'
 import { compile, abs } from 'mathjs'
 
 export class MathAdapter implements Math {

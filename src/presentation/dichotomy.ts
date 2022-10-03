@@ -1,4 +1,4 @@
-import { Calculation } from '../domain/calculation'
+import { Calculation } from '@/domain/calculation'
 
 export class Dichotomy {
   constructor (private readonly calculation: Calculation) {}

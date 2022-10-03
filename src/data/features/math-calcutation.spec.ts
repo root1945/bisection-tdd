@@ -1,6 +1,6 @@
-import { Math } from '../protocols/math'
-import { MathCalculation } from './math-calculation'
-import { GenerateExcel } from '../protocols/generate-excel'
+import { Math } from '@/data/protocols/math'
+import { MathCalculation } from '@/data/features/math-calculation'
+import { GenerateExcel } from '@/data/protocols/generate-excel'
 
 interface SutTypes {
   sut: MathCalculation

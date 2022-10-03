@@ -1,4 +1,4 @@
-import dichotomyFactory from './factories/dichotomy'
+import dichotomyFactory from '@/main/factories/dichotomy'
 
 const dichotomy = dichotomyFactory()
 

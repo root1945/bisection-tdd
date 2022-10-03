@@ -1,4 +1,4 @@
-import { Table } from './math'
+import { Table } from '@/data/protocols/math'
 
 export interface GenerateExcel {
   generate: (params: GenerateExcel.Params) => Promise<GenerateExcel.Result>

@@ -1,4 +1,4 @@
-import { GenerateExcel } from '../../data/protocols/generate-excel'
+import { GenerateExcel } from '@/data/protocols/generate-excel'
 import exceljs from 'exceljs'
 
 export class ExcelAdapter implements GenerateExcel {

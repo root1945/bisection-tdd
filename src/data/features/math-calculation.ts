@@ -1,6 +1,6 @@
-import { Calculation } from '../../domain/calculation'
-import { GenerateExcel } from '../protocols/generate-excel'
-import { Math } from '../protocols/math'
+import { Calculation } from '@/domain/calculation'
+import { GenerateExcel } from '@/data/protocols/generate-excel'
+import { Math } from '@/data/protocols/math'
 
 export class MathCalculation implements Calculation {
   constructor (

@@ -1,5 +1,5 @@
-import { Calculation } from '../domain/calculation'
-import { Dichotomy } from './dichotomy'
+import { Calculation } from '@/domain/calculation'
+import { Dichotomy } from '@/presentation/dichotomy'
 
 interface SutTypes {
   sut: Dichotomy
